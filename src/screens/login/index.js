@@ -12,16 +12,27 @@ import {
 
 import firebase from "../../config/firebase.js"
 
-export default function Login() {
+export default function Login(navigation) {
   //Database connection
   const database = firebase.firestore();
 
   //Login Configuration
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [password, setPassword] = useState("");
   const [errorLogin, setErrorLogin] = useState("");
 
   const Login = () => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        let user = userCredential.user;
+        // navigation.navigate("Home", { user: user });
+        console.log(user);
+      })
+      .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+      });
 
   }
   //Animations 
@@ -64,29 +75,27 @@ export default function Login() {
         <TextInput
           style={styles.input}
           placeholder="Informe o seu Email"
-          type="email"
-          autoCorrected={false}
+          type="text"
           onChange={(text) => setEmail(text)}
           value={email}
         />
         <TextInput
           style={styles.input}
           placeholder="Informe a sua Senha"
-          autoCorrected={false}
           secureTextEntry={true}
           type="text"
-          onChange={(text) => setSenha(text)}
-          value={senha}
+          onChange={(text) => setPassword(text)}
+          value={password}
         />
         {errorLogin === true
           ?
-          <View style={styles.containerError}>
-            <Text style={styles.error}>Email ou senha incorretos</Text>
+          <View style={styles.contentAlert}>
+            <Text style={styles.warningAlert}>Email ou senha incorretos</Text>
           </View>
           :
           <View />
         }
-        {email === "" || senha === ""
+        {email === "" || password === ""
           ?
           <TouchableOpacity
             disable={true}
@@ -97,6 +106,7 @@ export default function Login() {
           :
           <TouchableOpacity
             style={styles.btnSubmit}
+            onPress={Login}
           >
             <Text style={styles.submitText}>Entrar</Text>
           </TouchableOpacity>

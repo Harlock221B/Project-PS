@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
     color: "#222",
     fontSize: 17,
     padding: 10,
-    borderRadius: 7,
+    borderBottomWidth: 1,
+    borderBottomColor: "#CB262D",
   },
 
   btnSubmit: {
@@ -56,6 +57,17 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     marginTop: 15,
   },
+  contentAlert: {
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  warningAlert: {
+    paddingLeft: 10,
+    color: "#dbdbdb",
+    fontSize: 16,
+  }
 });
 
 export default styles;
