@@ -1,7 +1,7 @@
 import firebase from "firebase";
 import "firebase/storage";
 
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyCz2DOJJWCO6HwnH97kcu2hxx0YuP4nszI",
   authDomain: "pesquisa-satisfacao-58ded.firebaseapp.com",
   projectId: "pesquisa-satisfacao-58ded",
@@ -12,5 +12,4 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const database = firebase.firestore();
-export default database;
+export default firebase;

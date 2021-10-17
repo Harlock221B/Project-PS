@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "#FFF",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   containerLogo: {
     flex: 1,
     justifyContent: "center",
-    margin: -100,
   },
 
   container: {
@@ -24,6 +23,8 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#fff",
     width: "90%",
+    marginLeft: "auto",
+    marginRight: "auto",
     marginBottom: 15,
     color: "#222",
     fontSize: 17,
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   btnSubmit: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#CB262D",
     width: "90%",
     height: 45,
     padding: 10,
@@ -56,3 +57,5 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 });
+
+export default styles;
