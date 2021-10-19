@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "pesquisa_satisfacao",
+    "slug": "pesquisa_satisfacao",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "pesquisa_satisfacao"
+}
