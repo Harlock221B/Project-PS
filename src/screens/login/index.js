@@ -12,7 +12,7 @@ import {
 
 import firebase from "../../config/firebase.js"
 
-export default function Login(navigation) {
+export default function Login({ navigation }) {
   //Database connection
   const database = firebase.firestore();
 
@@ -21,19 +21,18 @@ export default function Login(navigation) {
   const [password, setPassword] = useState("");
   const [errorLogin, setErrorLogin] = useState("");
 
-  const Login = () => {
+  const loginFirebase = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Signed in
         let user = userCredential.user;
-        // navigation.navigate("Home", { user: user });
         console.log(user);
+        navigation.navigate("Home", { idUser: user.uid });
       })
       .catch((error) => {
+        setErrorLogin(true);
         let errorCode = error.code;
         let errorMessage = error.message;
       });
-
   }
   //Animations 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 150 }));
@@ -75,16 +74,16 @@ export default function Login(navigation) {
         <TextInput
           style={styles.input}
           placeholder="Informe o seu Email"
-          type="text"
-          onChange={(text) => setEmail(text)}
+          type='text'
+          onChangeText={(text) => setEmail(text)}
           value={email}
         />
         <TextInput
           style={styles.input}
           placeholder="Informe a sua Senha"
           secureTextEntry={true}
-          type="text"
-          onChange={(text) => setPassword(text)}
+          type='text'
+          onChangeText={(text) => setPassword(text)}
           value={password}
         />
         {errorLogin === true
@@ -106,7 +105,7 @@ export default function Login(navigation) {
           :
           <TouchableOpacity
             style={styles.btnSubmit}
-            onPress={Login}
+            onPress={loginFirebase}
           >
             <Text style={styles.submitText}>Entrar</Text>
           </TouchableOpacity>
