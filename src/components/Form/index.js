@@ -1,66 +1,56 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import styles from './styles';
+import * as React from 'react';
+import { View, TextInput } from 'react-native';
+import { RadioButton, Text } from 'react-native-paper';
+import { RectButtonProps } from 'react-native-gesture-handler';
+import style from './styles';
 
-
-class Formulario extends Component { 
-    constructor() {
-        super();
-        this.state = {
-            data: ['Alta', 'Média', 'Baixa'],
-            checked: 0,
-        }
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.radio}>
-                    {
-                        this.state.data.map((item, index) => {
-                            return (
-                                <View>
-                                    <Text style={styles.text}>{item}</Text>
-                                    <TouchableOpacity
-                                        key={index}
-                                        style={styles.radioButton}
-                                        onPress={() => this.setState({ checked: index })}
-                                    >
-                                        {
-                                            this.state.checked === index &&
-                                            <View style={styles.radioChecked} />
-                                        }
-                                    </TouchableOpacity>
-                                </View>
-                            )
-                        })
-                    }
-                </View>
-                <Text>
-                    Comentários:
-                </Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Digite aqui"
-                    multiline={true}
-                    numberOfLines={4}
-                />
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.navigation.navigate('Home')}
-                >
-                    <Text style={styles.buttonText}>
-                        Enviar
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        );
-    }
+type Props = RectButtonProps & {
+    title: string;
 }
 
-export default Formulario;
+export default function Form({ title }: Props) {
 
+    const [importance, setImportance] = React.useState('');
+    const [satisfaction, setSatisfaction] = React.useState('');
+    return (
+        <View>
+            <Text style={style.title}>{title}</Text>
+            <RadioButton.Group onValueChange={newValue => setImportance(newValue)} value={importance}>
+                <Text style={style.title}>Nivel de Importancia</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <RadioButton.Item label="Alta" value="alta" />
+                    <RadioButton.Item label="Media" value="media" />
+                    <RadioButton.Item label="Baixa" value="baixa" />
+                </View>
+            </RadioButton.Group>
+            <RadioButton.Group onValueChange={newValue => setSatisfaction(newValue)} value={satisfaction}>
+                <Text style={style.title}>Nivel de Satisfação</Text>
+                <View style={{ justifyContent: 'center' }}>
+                    <RadioButton.Item label="Otimo" value="otimo" />
+                    <RadioButton.Item label="Bom" value="bom" />
+                    <RadioButton.Item label="Regular" value="regular" />
+                    <RadioButton.Item label="Ruim" value="ruim" />
+                    <RadioButton.Item label="Não se Aplica" value="nao_se_aplica" />
+                </View>
+            </RadioButton.Group>
+            {satisfaction === 'regular' || satisfaction === 'ruim'
+                ?
+                <View>
+                    <Text style={style.text}>
+                        Seu feedback é importante para melhorar a qualidade do serviço prestado.
+                    </Text>
+                    <TextInput
+                        style={style.input}
+                        placeholder="Digite aqui"
+                        multiline={true}
+                        numberOfLines={4}
+                    />
+                </View>
+                :
+                null
+            }
+        </View>
 
-
-
+    );
+};
 

@@ -20,4 +20,6 @@ target 'pesquisasatisfacao' do
   # end
   pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end

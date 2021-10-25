@@ -3,41 +3,18 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     text: {
         color: "#222",
-        fontSize: 17,
+        fontSize: 12,
         fontWeight: "bold",
         marginBottom: 10,
         marginTop: 10,
         textAlign: "center"
     },
     title: {
-        fontSize: 20,
-        color: "#222",
+        color: "black",
+        fontSize: 15,
+        fontWeight: "bold",
         marginBottom: 10,
-    },
-    radio:{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 10,
-    },
-    radioText:{
-        fontSize: 17,
-        color: "#222",
-    },
-    radioButton:{
-        width: 20,
-        height: 20,
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: "#222",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    radioChecked:{
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: "#222",
+        textAlign: "center"
     },
     input:{
         borderWidth: 1,

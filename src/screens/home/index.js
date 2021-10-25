@@ -1,11 +1,36 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import Formulario from "../../components/Form";
-
+import styles from "./styles";
 export default function principal() {
   return (
-    <View>
-      <Formulario />
+    <View style={styles.container}>
+      <Text style={styles.title}>
+        Pesquisa de Satisfação
+      </Text>
+      <Formulario title=" 1. " />
+      <View style={styles.linha} />
+      <Formulario title=" 2. " />
+      <View style={styles.linha} />
+      <Formulario title=" 3. " />
+      <View style={styles.linha} />
+      <Formulario title=" 4. " />
+      <View style={styles.linha} />
+      <Formulario title=" 5. " />
+      <View style={styles.linha} />
+      <Formulario title=" 6. " />
+      <View style={styles.linha} />
+      <Formulario title=" 7. " />
+      <View style={styles.linha} />
+      <Formulario title=" 8. " />
+      <View style={styles.linha} />
+      <Formulario title=" 9. " />
+      <View style={styles.linha} />
+      <Formulario title=" 10. " />
+      <View style={styles.linha} />
+      <Formulario title=" 11. " />
+      <View style={styles.linha} />
+      <Formulario title=" 12. " />
     </View>
   );
 }
