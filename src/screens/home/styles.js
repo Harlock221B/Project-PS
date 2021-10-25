@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        backgroundColor: "#C22A1F"
+    },
+
     container: {
         flex: 1,
         marginTop: 10,
@@ -8,6 +13,8 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         padding: 10,
+        borderRadius: 10,
+        backgroundColor: "#fff",
     },
 
     banner: {
@@ -16,7 +23,8 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        color: '#C22A1F',
+        color: '#fff',
+        width: '100%',
         fontSize: 20,
         lineHeight: 30,
         marginTop: 50,
@@ -31,6 +39,21 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
 
+    buttonEnviar: {
+        backgroundColor: '#C22A1F',
+        borderRadius: 5,
+        padding: 10,
+        marginTop: 20,
+        marginBottom: 20,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    buttonText: {
+        color: '#FFF',
+        fontSize: 20,
+        fontWeight: 'bold'
+    }
 });
 
 export default styles;
